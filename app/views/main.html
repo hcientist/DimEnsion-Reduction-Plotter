@@ -1,0 +1,43 @@
+<h1>Rank 'em!</h1>
+<div class="row">
+  <div class="span4">
+    <button class="btn btn-primary" ng-click="replot()">Re-plot!</button>
+    <ul>
+      <li class="question" ng-repeat="question in questions">
+        <div class="move-question-ctrl">
+          <button class="" ng-click="up($index, question.id)"><i class="icon-chevron-up"></i></button><button class="" ng-click="down($index, question.id)"><i class="icon-chevron-down"></i></button>
+        </div>
+        <span alt="{{question.text}}" data-qid="{{question.id}}">{{question.text}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="span8">
+    <div class="dataplot">
+      <plot height=400 aspect=1>
+        <points x="[[visAnClassAsync#x]]" y="[[visAnClassAsync#y]]"
+                marker-size=25 stroke="none" fill="red"></points>
+      </plot>  
+      <plot-data name="visAnClassAsync" format="json" ng-model="asyncdata">
+      </plot-data>
+      <table>
+        <tr ng-repeat="row in asyncdataTable">
+          <td ng-repeat="elem in row">{{elem}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="dataplot">
+      <plot height=400 aspect=1>
+        <points x="[[visAnClassAsyncPolar#x]]" y="[[visAnClassAsyncPolar#y]]"
+                marker-size=25 stroke="none" fill="red"></points>
+      </plot>
+      <plot-data name="visAnClassAsyncPolar" format="json" ng-model="asyncPolarData">
+      </plot-data>
+      <table>
+        <tr ng-repeat="row in asyncPolarDataTable">
+          <td ng-repeat="elem in row">{{elem}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
