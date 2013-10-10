@@ -56,10 +56,10 @@ class DimensionFlattener:
       for questionId in range(0,len(ranks),2): # this is counting through the ranked questionIds 
         # print personResults[questionId], multipliers[questionId/2]
         print questionId, ranks
-        x += float(personResults[ranks[questionId]])/10.0*float(multipliers[questionId/2])
+        x += float(personResults[ranks[questionId]])/10.0*float(multipliers[questionId/2])/1e25
         if questionId+1 >= len(personResults):
           continue
-        y += personResults[ranks[questionId]+1]/10.0*multipliers[questionId/2]
+        y += personResults[ranks[questionId]+1]/10.0*multipliers[questionId/2]/1e25
 
       flattened.append({'x':x,'y':y})
     return flattened
@@ -89,10 +89,10 @@ class DimensionFlattener:
       theta = float(0)
       for questionId in range(0,len(ranks),2): # this is counting through the ranked questionIds 
         # print personResults[questionId], multipliers[questionId/2]
-        r += float(personResults[ranks[questionId]])/10.0*float(multipliers[questionId/2])
+        r += float(personResults[ranks[questionId]])/10.0*float(multipliers[questionId/2])/1e25
         if questionId+1 >= len(personResults):
           continue
-        theta += personResults[ranks[questionId]+1]/10.0*multipliers[questionId/2]*3.6
+        theta += personResults[ranks[questionId]+1]/10.0*multipliers[questionId/2]*3.6/1e25
 
       x=r*math.cos(math.radians(theta))
       y=r*math.sin(math.radians(theta))
