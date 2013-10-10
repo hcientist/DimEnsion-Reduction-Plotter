@@ -2,6 +2,29 @@
 
 angular.module('multiDimensionPlotApp')
   .controller('MainCtrl', function ($scope, $http) {
+    var sortableEle;
+    
+    $scope.dragStart = function(e, ui) {
+        ui.item.data('start', ui.item.index());
+    }
+    $scope.dragEnd = function(e, ui) {
+      var start = ui.item.data('start');
+      var end = ui.item.index();
+      
+      $scope.questions.splice(end, 0, $scope.questions.splice(start, 1)[0]);
+      
+      $scope.$apply();
+
+      $scope.ranking = ''+$scope.questions[0].id;
+      for (var i=1; i<$scope.questions.length; i++) {
+        $scope.ranking+="/"+$scope.questions[i].id;
+      }
+    }
+        
+    sortableEle = $('#sortable').sortable({
+        start: $scope.dragStart,
+        update: $scope.dragEnd
+    });
     $scope.questions = [
       { 
         id: 0,
@@ -141,10 +164,10 @@ angular.module('multiDimensionPlotApp')
 
     $scope.replot = function() {
       console.log('replot!');
-      $scope.ranking = ''+$scope.questions[0].id;
-      for (var i=1; i<$scope.questions.length; i++) {
-        $scope.ranking+="/"+$scope.questions[i].id;
-      }
+      // $scope.ranking = ''+$scope.questions[0].id;
+      // for (var i=1; i<$scope.questions.length; i++) {
+      //   $scope.ranking+="/"+$scope.questions[i].id;
+      // }
       // console.log(ranking);
       // $scope.ranking = ranking;
 

@@ -69,7 +69,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    "/Users/tgm/Dropbox/VT/VT-Fall 2013/CS 6724 Visual Analytics/HW/HW6/django-multi-plot/app",
+    "/Users/tgm/Dropbox/VT/VT-Fall 2013/CS 6724 Visual Analytics/HW/HW6/DimEnsion-Reduction-Plotter/app",
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -109,7 +109,7 @@ ROOT_URLCONF = 'plotter.urls'
 WSGI_APPLICATION = 'plotter.wsgi.application'
 
 TEMPLATE_DIRS = (
-    "/Users/tgm/Dropbox/VT/VT-Fall 2013/CS 6724 Visual Analytics/HW/HW6/django-multi-plot/app"
+    "/Users/tgm/Dropbox/VT/VT-Fall 2013/CS 6724 Visual Analytics/HW/HW6/DimEnsion-Reduction-Plotter/app"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

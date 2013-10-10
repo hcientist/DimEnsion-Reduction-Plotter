@@ -2,11 +2,9 @@
 <div class="row">
   <div class="span4">
     <button class="btn btn-primary" ng-click="replot()">Re-plot!</button>
-    <ul>
+    <ul id="sortable">
       <li class="question" ng-repeat="question in questions">
-        <div class="move-question-ctrl">
-          <button class="" ng-click="up($index, question.id)"><i class="icon-chevron-up"></i></button><button class="" ng-click="down($index, question.id)"><i class="icon-chevron-down"></i></button>
-        </div>
+        <i class="icon-align-justify"></i>
         <span alt="{{question.text}}" data-qid="{{question.id}}">{{question.text}}</span>
       </li>
     </ul>
